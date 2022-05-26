@@ -1,0 +1,139 @@
+{
+  "bancos": [
+    {
+      "id": 0,
+      "nome": "Inter",
+      "credito_limite": "3700",
+      "credito_disponivel": "1100",
+      "cor": [
+        "#ff7504",
+        "#ff790c",
+        "#ff7e14",
+        "#ff821b",
+        "#ff8a2b"
+      ],
+      "usuario_fk": 0
+    },
+    {
+      "id": 1,
+      "nome": "Banco do Brasil",
+      "credito_limite": "3300",
+      "credito_disponivel": "1800",
+      "cor": [
+        "#edd900",
+        "#f4e000",
+        "#ffea05"
+      ],
+      "usuario_fk": 0
+    },
+    {
+      "id": 2,
+      "nome": "Bradesco",
+      "credito_limite": "0",
+      "credito_disponivel": "0",
+      "cor": [
+        "#B41A83",
+        "#C20757",
+        "#c91462",
+        "#F56077"
+      ],
+      "usuario_fk": 0
+    },
+    {
+      "id": 3,
+      "nome": "Nubank",
+      "credito_limite": "0",
+      "credito_disponivel": "0",
+      "cor": [
+        "#9d40d0",
+        "#9734cd",
+        "#8e30c2",
+        "#852db6",
+        "#7c2aaa",
+        "#73279e",
+        "#6a2492",
+        "#612186",
+        "#581e7a",
+        "#4f1b6e"
+      ],
+      "usuario_fk": 0
+    },
+    {
+      "id": 4,
+      "nome": "Caixa",
+      "credito_limite": "0",
+      "credito_disponivel": "0",
+      "cor": [
+        "#405cd0",
+        "#3452cd",
+        "#304cc2",
+        "#2d47b6",
+        "#2a42aa",
+        "#273d9e"
+      ],
+      "usuario_fk": 0
+    },
+    {
+      "id": 5,
+      "nome": "Flash",
+      "credito_limite": "0",
+      "credito_disponivel": "0",
+      "cor": [
+        "#ff06ec",
+        "#ff0eec",
+        "#ff16ed",
+        "#ff1ded",
+        "#ff2def",
+        "#ff34ef",
+        "#ff3cf0"
+      ],
+      "usuario_fk": 0
+    }
+  ],
+  "Lancamentos": [
+    {
+      "id": 0,
+      "mes": "Janeiro",
+      "ano": "2022",
+      "criado_em": "2022-05-18 11:59:13.797193+00",
+      "ultima_alteracao": "2022-05-18 11:59:13.797193+00"
+    },
+    {
+      "id": 1,
+      "mes": "Fevereiro",
+      "ano": "2022",
+      "criado_em": "2022-05-18 11:59:13.797193+00",
+      "ultima_alteracao": "2022-05-18 11:59:13.797193+00"
+    },
+    {
+      "id": 2,
+      "mes": "Março",
+      "ano": "2022",
+      "criado_em": "2022-05-18 11:59:13.797193+00",
+      "ultima_alteracao": "2022-05-18 11:59:13.797193+00"
+    },
+    {
+      "id": 3,
+      "mes": "Abril",
+      "ano": "2022",
+      "criado_em": "2022-05-18 11:59:13.797193+00",
+      "ultima_alteracao": "2022-05-18 11:59:13.797193+00"
+    },
+    {
+      "id": 4,
+      "mes": "Maio",
+      "ano": "2022",
+      "criado_em": "2022-05-18 11:59:13.797193+00",
+      "ultima_alteracao": "2022-05-18 11:59:13.797193+00"
+    }
+  ],
+  "gasto": [
+    {
+      "id": 1,
+      "nome": "Teste",
+      "valor": "23",
+      "data_referente": 1653350400000,
+      "categoria_fk": null
+    }
+  ]
+}
