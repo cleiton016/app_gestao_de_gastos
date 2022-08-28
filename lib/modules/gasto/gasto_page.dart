@@ -25,115 +25,117 @@ class GastoPage extends GetView<GastoController> {
         appBar: AppBar(title: const Text('Lançamento de Gastos'),),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      inputDropdow(
+                        label: "Banco",
+                        varText: banco,
+                        arrayItens: ["Inter"]
+                      ),
+                      inputDropdow(
+                        label: "Fatura",
+                        varText: fatura,
+                        arrayItens: ["Janeiro"]
+                      ),
+                    ],
+                  ),
+                ),
+                
+                
+                inputText(
+                  labelName:"Nome",
+                  textVar: nome,
+                  context: context,
+                  
+                ),
+                Row(
                   children: [
-                    inputDropdow(
-                      label: "Banco",
-                      varText: banco,
-                      arrayItens: ["Inter"]
+                    Expanded(
+                      child: inputText(
+                        labelName: "Valor",
+                        textVar: valor,
+                        context: context,
+                        inputType: TextInputType.number
+                      ),
                     ),
-                    inputDropdow(
-                      label: "Fatura",
-                      varText: fatura,
-                      arrayItens: ["Janeiro"]
-                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 16),
+                      child: inputDropdow(
+                        label: "Categoria",
+                        varText: categoria,
+                        arrayItens: []
+                      ),
+                    )
                   ],
                 ),
-              ),
-              
-              
-              inputText(
-                labelName:"Nome",
-                textVar: nome,
-                context: context,
-                
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: inputText(
-                      labelName: "Valor",
-                      textVar: valor,
+                inputText(
+                  labelName:"Data Referente",
+                  textVar: dataReferente,
+                  context: context,
+                  inputType: TextInputType.datetime,
+                  max: 10,
+                  mask: [
+                    MaskTextInputFormatter(
+                      mask: '####-##-##', 
+                      filter: { "#": RegExp(r'[0-9]') },
+                      type: MaskAutoCompletionType.lazy
+                    )
+                  ],
+                  func: () {
+                    showDatePicker(
+                      cancelText: "Cancelar",
+                      
                       context: context,
-                      inputType: TextInputType.number
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 16),
-                    child: inputDropdow(
-                      label: "Categoria",
-                      varText: categoria,
-                      arrayItens: ["Alimentação", "Outros"]
-                    ),
-                  )
-                ],
-              ),
-              inputText(
-                labelName:"Data Referente",
-                textVar: dataReferente,
-                context: context,
-                inputType: TextInputType.datetime,
-                max: 10,
-                mask: [
-                  MaskTextInputFormatter(
-                    mask: '####-##-##', 
-                    filter: { "#": RegExp(r'[0-9]') },
-                    type: MaskAutoCompletionType.lazy
-                  )
-                ],
-                func: () {
-                  showDatePicker(
-                    cancelText: "Cancelar",
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
+                      lastDate: DateTime(2030)
+                    ).then((value) => {
+                      dataReferente.text = DateFormat('yyyy-MM-dd').format(value!)
+                    });
+                  }
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: corbotao.value,
+                        borderRadius: const BorderRadius.all(Radius.circular(20)),
+                        border: Border.all(
+                          color: const Color(0xFFFFFFFF),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: TextButton(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        child: Text(
+                          "Salvar",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lexendDeca(
+                            color: Colors.white,
+                            fontSize: 16
+                          )
+                        ),
+                      ),
+                    )
                     
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
-                    lastDate: DateTime(2030)
-                  ).then((value) => {
-                    dataReferente.text = DateFormat('yyyy-MM-dd').format(value!)
-                  });
-                }
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 150,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: corbotao.value,
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(
-                        color: const Color(0xFFFFFFFF),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      child: Text(
-                        "Salvar",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.lexendDeca(
-                          color: Colors.white,
-                          fontSize: 16
-                        )
-                      ),
-                    ),
-                  )
-                  
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
     );
