@@ -5,6 +5,7 @@ import 'package:app_gestao_de_gastos/modules/lancamentos/lancamento_module.dart'
 import 'package:app_gestao_de_gastos/modules/login/login_module.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +19,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: const Color(0xFF2B2B2B),
+        textTheme: TextTheme(
+          titleMedium: GoogleFonts.lexendDeca(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            color:  const Color(0xFF2B2B2B)
+          ),
+        ),
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
           background: Color(0xFFDFDEDE),
@@ -30,7 +38,6 @@ class MyApp extends StatelessWidget {
           onSecondary: Color(0xFF2B2B2B),
           onSurface: Color(0xFF2B2B2B),
           onError: Color.fromARGB(255, 250, 64, 64),
-
         )
       ),
       initialRoute: '/home',
