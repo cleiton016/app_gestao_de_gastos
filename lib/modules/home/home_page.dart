@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import './home_controller.dart';
 import 'Components/menu_lateral_component.dart';
 import 'package:app_gestao_de_gastos/modules/home/home_controller.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 // ignore: use_key_in_widget_constructors
 class HomePage extends GetView<HomeController> {
@@ -89,7 +88,7 @@ class HomePage extends GetView<HomeController> {
                             ),
                           );
                           }, onError: (error) {
-                            return _errorListarBancos(error);
+                            return _errorListarBancos(error, context);
                           }
                         )
                         
@@ -118,23 +117,19 @@ class HomePage extends GetView<HomeController> {
       title: TextButton(
         onPressed: () => controller.findAllBancos(),
         child: Text(titulo,
-          style: GoogleFonts.poppins(
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-            color: Theme.of(context).primaryColor,
-          ),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
     ) ;
   }
 
-  _errorListarBancos(String? error) {
+  _errorListarBancos(String? error, context) {
     return SizedBox(
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(error ?? ''),
+                    Text(error ?? '', style: Theme.of(context).textTheme.bodyMedium,),
                     TextButton(
                       onPressed: () => controller.findAllBancos(),
                       child: const Icon(
