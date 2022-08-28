@@ -1,12 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 import 'dart:convert';
 
 class LancamentoModel {
   int id;
   String mes;
   String ano;
-  DateTime criadoEm;
-  DateTime ultimaAlteracao;
+  DateTime criado_em;
+  DateTime ultima_alteracao;
   // int usuarioFK;
   // int bancoFK;
   
@@ -14,8 +14,8 @@ class LancamentoModel {
     required this.id,
     required this.mes,
     required this.ano,
-    required this.criadoEm,
-    required this.ultimaAlteracao,
+    required this.criado_em,
+    required this.ultima_alteracao,
   });
   
   Map<String, dynamic> toMap() {
@@ -23,8 +23,8 @@ class LancamentoModel {
       'id': id,
       'mes': mes,
       'ano': ano,
-      'criadoEm': criadoEm.millisecondsSinceEpoch,
-      'ultimaAlteracao': ultimaAlteracao.millisecondsSinceEpoch,
+      'criado_em': criado_em.millisecondsSinceEpoch,
+      'ultima_alteracao': ultima_alteracao.millisecondsSinceEpoch,
     };
   }
 
@@ -33,8 +33,8 @@ class LancamentoModel {
       id: map['id'] as int,
       mes: map['mes'] as String,
       ano: map['ano'] as String,
-      criadoEm: DateTime.parse(map['criado_em']),
-      ultimaAlteracao: DateTime.parse(map['ultima_alteracao']),
+      criado_em: DateTime.parse(map['criado_em']),
+      ultima_alteracao: DateTime.parse(map['ultima_alteracao']),
     );
   }
 
