@@ -135,5 +135,15 @@
       "data_referente": 1653350400000,
       "categoria_fk": null
     }
+  ],
+  "categorias": [
+      {
+        "id": 0,
+        "nome": "Alimentação",
+        "slug": "alimentacao",
+        "cor": "#654e4df",
+        "criado_em": "2022-05-27 15:35:00",
+        "ultima_alteracao": "2022-05-27 15:35:00"
+      }
   ]
 }
