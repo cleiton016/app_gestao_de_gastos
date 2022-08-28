@@ -1,3 +1,4 @@
+import 'package:app_gestao_de_gastos/models/CategoriaModel.dart';
 import 'package:app_gestao_de_gastos/models/GastoModel.dart';
 import 'package:app_gestao_de_gastos/repository/i_gasto_repository.dart';
 import 'package:dio/dio.dart';
@@ -24,8 +25,11 @@ class GastoRepositoryDio implements IGastoRepository {
 
   @override
   Future <List> getCategorias() async {
-    
-    //return [{'nome':"Alimentação", 'id': 0}];
-    return ['Alimentação', 'Conveniencia', 'Lazer'];
+    try {
+      final response = await _dio.get<List>("${url}categorias");
+      return response.data?.map((e) => CategoriaModel.fromMap(e)).toList()?? [];
+    } catch(e){
+      rethrow;
+    }
   }
 }

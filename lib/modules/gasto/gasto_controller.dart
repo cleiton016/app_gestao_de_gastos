@@ -18,5 +18,15 @@ class GastoController extends GetxController with StateMixin {
     }
   }
 
+  Future<List> getCategoria() async {
+    try {
+      final dados = await _gastoRepository.getCategorias();
+      return dados;
+    } catch (e) {
+      print( '$e ----');
+      return [];
+    }
+  }
+
 
 }
